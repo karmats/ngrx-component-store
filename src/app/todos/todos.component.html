@@ -1,0 +1,27 @@
+<div>
+  <div>
+    <input #newTodo type="text" />
+    <button (click)="addTodo(newTodo.value); newTodo.value = ''">
+      Add todo
+    </button>
+  </div>
+  <h5>Todos</h5>
+  <ul>
+    <li *ngFor="let todo of todos$ | async">
+      <label [for]="todo.id">{{ todo.name }}</label>
+      <input
+        [id]="todo.id"
+        type="checkbox"
+        [value]="todo.name"
+        (change)="updateTodo(todo)"
+      />
+    </li>
+  </ul>
+  <h5>Done</h5>
+  <ul>
+    <li *ngFor="let todo of doneTodos$ | async">
+      <label [for]="todo.id">{{ todo.name }}</label>
+      <input [id]="todo.id" type="checkbox" [value]="todo.name" (change)="updateTodo(todo, false)" checked />
+    </li>
+  </ul>
+</div>
