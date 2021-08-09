@@ -29,8 +29,15 @@ export class TodosStore extends ComponentStore<TodosState> {
     todos: [...state.todos, todo],
   }));
 
-  readonly updateTodo = (todo: Todo) =>
-    this.patchState((state) => ({
-      todos: state.todos.map((t) => (t.id === todo.id ? todo : t)),
-    }));
+  readonly updateTodo = this.updater((state, todo: Todo) => ({
+    todos: state.todos.map((t) => (t.id === todo.id ? todo : t)),
+  }));
+
+  readonly removeTodo = this.updater((state, id: number) => ({
+    todos: state.todos.filter((t) => t.id !== id),
+  }));
+
+  readonly removeDoneTodos = this.updater((state) => ({
+    todos: state.todos.filter((t) => !t.done),
+  }));
 }

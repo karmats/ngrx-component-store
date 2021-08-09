@@ -18,10 +18,19 @@
     </li>
   </ul>
   <h5>Done</h5>
+  <button *ngIf="(doneTodos$ | async)?.length" (click)="removeDoneTodos()">
+    Clear
+  </button>
   <ul>
     <li *ngFor="let todo of doneTodos$ | async">
       <label [for]="todo.id">{{ todo.name }}</label>
-      <input [id]="todo.id" type="checkbox" [value]="todo.name" (change)="updateTodo(todo, false)" checked />
+      <input
+        [id]="todo.id"
+        type="checkbox"
+        [value]="todo.name"
+        (change)="updateTodo(todo, false)"
+        checked
+      />
     </li>
   </ul>
 </div>

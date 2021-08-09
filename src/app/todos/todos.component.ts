@@ -29,4 +29,8 @@ export class TodosComponent {
   updateTodo(todo: Todo, done = true): void {
     this.todosStore.updateTodo({ ...todo, done });
   }
+
+  removeDoneTodos(): void {
+    this.todosStore.removeDoneTodos();
+  }
 }
