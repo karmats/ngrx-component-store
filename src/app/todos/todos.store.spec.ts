@@ -1,4 +1,4 @@
-import { Todo } from '../todos.models';
+import { Todo } from './todos.models';
 import { TodosStore } from './todos.store';
 
 describe('TodoStore', () => {

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ComponentStore } from '@ngrx/component-store';
 import { Observable } from 'rxjs';
-import { Todo } from '../todos.models';
+import { Todo } from './todos.models';
 
 export interface TodosState {
   todos: Todo[];

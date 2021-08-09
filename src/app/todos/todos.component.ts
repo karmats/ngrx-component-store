@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
-import { TodosStore } from './store/todos.store';
 import { Todo } from './todos.models';
+import { TodosStore } from './todos.store';
 
 @Component({
   selector: 'app-todos',
